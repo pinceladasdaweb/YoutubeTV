@@ -1,0 +1,227 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.loading {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+}
+
+body {
+    background-color: #ebebed
+}
+
+header {
+    background-color: #fff;
+    -webkit-box-shadow: 0 4px 6px -6px rgba(50, 50, 50, 0.5);
+       -moz-box-shadow: 0 4px 6px -6px rgba(50, 50, 50, 0.5);
+            box-shadow: 0 4px 6px -6px rgba(50, 50, 50, 0.5);
+    height: 50px;
+    margin-bottom: 20px;
+    padding-top: 10px
+}
+
+header img {
+    display: block;
+    margin: 0 auto;
+}
+
+main {
+    margin: 0 auto 20px;
+    max-width: 1200px;
+    position: relative;
+}
+
+.branded {
+    background-color: #fff;
+    height: 200px;
+    margin: 0 10px 20px;
+    position: relative;
+}
+
+.branded-banner {
+    background-position: center center;
+    background-size: cover;
+    height: 155px
+}
+
+.branded-image-profile {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    height: 100px;
+    left: 30px;
+    position: absolute;
+    top: 80px
+}
+
+.branded-title {
+    color: #fff;
+    font: 1.6em 'Montserrat', Arial, helvetica;
+    left: 150px;
+    position: absolute;
+    text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.85);
+    top: 100px
+}
+
+.branded-info {
+    bottom: 8px;
+    color: #9a9b9d;
+    font: 0.7em 'Montserrat', Arial, helvetica;
+    margin: 8px 0 0;
+    position: absolute;
+    right: 20px
+}
+
+.branded-subscribers {
+    background: url('img/ico-subscribers.png') no-repeat left center;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 0 0 35px;
+}
+
+.featured {
+    margin: 0 10px 20px
+}
+
+.featured-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.featured-video iframe {
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.shelf-item {
+    cursor: pointer;
+    float: left;
+    margin-bottom: 20px;
+    min-height: 205px;
+    padding: 0 10px;
+    position: relative;
+    width: 33.3333%
+}
+
+.shelf-item .shelf-item-wrapper {
+    position: relative;
+}
+
+.shelf-item .shelf-item-wrapper:before {
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,1) 100%);
+    content: '';
+    height: 100%;
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+    z-index: 2
+}
+
+.shelf-item-image {
+    display: block;
+    max-width: 100%
+}
+
+.shelf-item-info {
+    bottom: 40px;
+    left: 10px;
+    position: absolute;
+    right: 10px;
+    z-index: 3
+}
+
+.shelf-item-title {
+    color: #fff;
+    font: 1em 'Montserrat', Arial, helvetica;
+    margin: 0;
+    text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.85);
+}
+
+.shelf-item-time {
+    float: right;
+}
+
+.shelf-item-time, .shelf-item-statistics {
+    color: #ccc;
+    font: .8em 'Montserrat', Arial, helvetica;
+    margin: 0;
+    text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.85);
+}
+
+.shelf-item .loading-svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+}
+
+footer {
+    background-color: #df2229;
+    height: 40px;
+}
+
+footer p {
+    color: #fff;
+    font: 0.7em 'Montserrat', Arial, helvetica;
+    line-height: 40px;
+    margin: 0;
+    text-align: center;
+}
+
+footer a {
+    color: inherit;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    .shelf-item {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .shelf-item {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .branded-image-profile {
+        left: 50%;
+        margin-left: -52px;
+        top: 10px
+    }
+
+    .branded-title {
+        margin: -35px 0 10px;
+        position: static;
+        text-align: center;
+    }
+
+    .branded-info {
+        position: static;
+        text-align: center;
+    }
+}
