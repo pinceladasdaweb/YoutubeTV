@@ -23,6 +23,9 @@
             <p>Powered by <a href="https://developers.google.com/youtube/v3/getting-started" title="Youtube API">Youtube API</a></p>
         </footer>
 
+        <script src="public/js/fetch.js" type="text/javascript"></script>
+        <script src="public/js/es6-promise.min.js" type="text/javascript"></script>
+        <script src="public/js/dataset.js" type="text/javascript"></script>
         <script src="public/js/youtubetv.js" type="text/javascript"></script>
         <script type="text/javascript">
             new YoutubeTv();
