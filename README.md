@@ -7,6 +7,11 @@
 
 YoutubeTV is a experiment with the Youtube API using PHP and JavaScript (without frameworks), giving you an option to assemble a portfolio using your Youtube channel.
 
+## Requirements
+
+* PHP >=5.3
+* CURL extension in PHP
+
 ## Demo
 View demo [here](http://www.pinceladasdaweb.com.br/blog/uploads/youtubetv/).
 
@@ -54,5 +59,5 @@ Check [Releases](https://github.com/pinceladasdaweb/YoutubeTV/releases) for deta
 ## To do
 
 - [x] Add support for older browsers.
-- [ ] Scroll to top after click on video thumbnail.
+- [x] Scroll to top after click on video thumbnail.
 - [ ] Button to display more videos.
