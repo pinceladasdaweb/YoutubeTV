@@ -121,7 +121,9 @@
 
                 shelf.addEventListener('click', function (e) {
                     if (e.target && e.target.nodeName === 'DIV' || e.target.nodeName === 'H1'  || e.target.nodeName === 'P') {
-                        this.watch(shelf.dataset.video);
+                        scroll2Top(280, function () {
+                            this.watch(shelf.dataset.video);
+                        }.bind(this), 1400);
                     }
                 }.bind(this), false);
             }.bind(this));
