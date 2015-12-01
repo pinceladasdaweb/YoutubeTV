@@ -26,6 +26,7 @@
         <script src="public/js/polyfills/fetch.js" type="text/javascript"></script>
         <script src="public/js/polyfills/es6-promise.min.js" type="text/javascript"></script>
         <script src="public/js/polyfills/dataset.js" type="text/javascript"></script>
+        <script src="public/js/scroll2Top.js" type="text/javascript"></script>
         <script src="public/js/youtubetv.js" type="text/javascript"></script>
         <script type="text/javascript">
             new YoutubeTv();
