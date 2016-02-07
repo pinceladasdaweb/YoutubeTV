@@ -55,9 +55,3 @@ Check [Releases](https://github.com/pinceladasdaweb/YoutubeTV/releases) for deta
 
 ## License
 [MIT](LICENSE)
-
-## To do
-
-- [x] Add support for older browsers.
-- [x] Scroll to top after click on video thumbnail.
-- [ ] Button to display more videos.
