@@ -19,6 +19,7 @@
         this.content         = document.querySelector('#content');
         this.endpointBranded = './inc/branded.php';
         this.endpointShelf   = './inc/shelf.php';
+        this.endpointMore    = './inc/page.php';
 
         this.run();
     };
@@ -117,7 +118,11 @@
             var shelves = document.querySelectorAll('.shelf-item');
 
             Array.prototype.forEach.call(shelves, function (shelf) {
-                this.mount(shelf, shelf.dataset.video);
+                if (!shelf.classList.contains('loaded')) {
+                    this.mount(shelf, shelf.dataset.video);
+                }
+
+                shelf.classList.add('loaded');
 
                 shelf.addEventListener('click', function (e) {
                     if (e.target && e.target.nodeName === 'DIV' || e.target.nodeName === 'H1'  || e.target.nodeName === 'P') {
@@ -159,9 +164,42 @@
                     console.error(error.message);
                 });
         },
+        loadMore: function () {
+            var token, request, parent, btn;
+
+            this.content.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                if (e.target && e.target.nodeName === 'A' && e.target.className === 'load-more') {
+                    e.target.textContent = 'Loading...';
+
+                    token   = e.target.getAttribute('data-next-page-id');
+                    request = this.endpointMore + '?pageToken=' + token;
+
+                    parent  = document.querySelector('.' + e.target.parentNode.className.split(" ")[0] + ':last-child');
+                    btn     = parent.lastElementChild;
+
+                    fetch(request)
+                        .then(function (response) {
+                            return response.text();
+                        })
+                        .then(function (responseText) {
+                            parent.removeChild(btn);
+                            this.inject(this.content, responseText);
+                        }.bind(this))
+                        .then(function () {
+                            this.shelf();
+                        }.bind(this))
+                        .catch(function (error) {
+                            console.error(error.message);
+                        });
+                }
+            }.bind(this), false);
+        },
         run: function () {
             this.setHeight();
             this.branded();
+            this.loadMore();
         }
     };
 
