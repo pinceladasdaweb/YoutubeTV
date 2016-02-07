@@ -177,6 +177,19 @@ main {
     transform: translateY(-50%);
 }
 
+.load-more {
+    background-color: #df2229;
+    border-radius: 5px;
+    clear: both;
+    color: #fff;
+    display: block;
+    font: 0.9em/60px "Montserrat", Arial, helvetica;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    width: 300px
+}
+
 footer {
     background-color: #df2229;
     height: 40px;
