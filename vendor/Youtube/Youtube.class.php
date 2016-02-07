@@ -43,19 +43,28 @@ class Youtube
         return $this->_executeRequest($endpoint);
     }
 
-    public function getUserVideos($playlist, $results)
+    public function getUserVideos($playlist, $results, $nextPageToken = null)
     {
-        $endpoint = $this->_api_root . self::ENDPOINT_PLAYLIST . '?key=' . $this->_apy_key . '&playlistId=' . $playlist . '&part=snippet&maxResults=' . $results;
+        $nextPage = (!isset($nextPageToken)) ? '' : $nextPageToken;
+
+        $endpoint = $this->_api_root . self::ENDPOINT_PLAYLIST . '?key=' . $this->_apy_key . '&playlistId=' . $playlist . '&part=snippet&maxResults=' . $results . '&pageToken=' . $nextPage;
         $request  = $this->_executeRequest($endpoint);
 
-        $videos   = json_decode($request);
-        $videosId = array();
+        $response = json_decode($request);
+        $token    = array(
+            "nextPageToken" => $response->nextPageToken
+        );
+        $ids = array(
+            "ids" => array()
+        );
 
-        foreach ($videos->items as $video) {
-            array_push($videosId, $video->snippet->resourceId->videoId);
+        foreach ($response->items as $video) {
+            array_push($ids['ids'], $video->snippet->resourceId->videoId);
         }
 
-        return $videosId;
+        $results = array_merge($token, $ids);
+
+        return $results;
     }
 
     private function getChannelId($username)
