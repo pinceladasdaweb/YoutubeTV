@@ -151,7 +151,7 @@
                             '</div>' +
                         '</div>', {
                             title: data.items[0].snippet.title,
-                            image: data.items[0].snippet.thumbnails.standard.url,
+                            image: data.items[0].snippet.thumbnails.standard ? data.items[0].snippet.thumbnails.standard.url : '//placehold.it/640x480/000000/ffffff/?text=No+Thumbnail',
                             duration: data.items[0].contentDetails.duration.replace('PT', ''),
                             publishedAt: this.timeAgo(data.items[0].snippet.publishedAt),
                             views: this.formatNumber(data.items[0].statistics.viewCount)
