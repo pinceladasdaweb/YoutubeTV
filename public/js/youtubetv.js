@@ -165,7 +165,7 @@
                 });
         },
         loadMore: function () {
-            var token, request, parent, btn;
+            var token, request, parent, btn, distance;
 
             this.content.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -173,11 +173,12 @@
                 if (e.target && e.target.nodeName === 'A' && e.target.className === 'load-more') {
                     e.target.textContent = 'Loading...';
 
-                    token   = e.target.getAttribute('data-next-page-id');
-                    request = this.endpointMore + '?pageToken=' + token;
+                    distance = e.target.offsetTop + 70;
+                    token    = e.target.getAttribute('data-next-page-id');
+                    request  = this.endpointMore + '?pageToken=' + token;
 
-                    parent  = document.querySelector('.' + e.target.parentNode.className.split(" ")[0] + ':last-child');
-                    btn     = parent.lastElementChild;
+                    parent   = document.querySelector('.' + e.target.parentNode.className.split(" ")[0] + ':last-child');
+                    btn      = parent.lastElementChild;
 
                     fetch(request)
                         .then(function (response) {
@@ -189,6 +190,7 @@
                         }.bind(this))
                         .then(function () {
                             this.shelf();
+                            scroll2Top(distance, 2000);
                         }.bind(this))
                         .catch(function (error) {
                             console.error(error.message);
